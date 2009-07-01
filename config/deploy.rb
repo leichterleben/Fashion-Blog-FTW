@@ -4,7 +4,7 @@ set :repository,  "git://github.com/leichterleben/Fashion-Blog-FTW.git"
 set :git_enable_submodules,1
 set :local_repository , "."
 set :branch, "master"
-
+set :user, "christian"
 set :deploy_to, "/home/www/somewear.it"
 
 
@@ -17,13 +17,18 @@ set :deploy_to, "/home/www/somewear.it"
 # If you aren't using Subversion to manage your source code, specify
 # your SCM below:
 # set :scm, :subversion
-single_target= "192.168.23.67"
+single_target= "druckwelle"
 
 role :app, single_target
 role :web, single_target
 role :db,  single_target, :primary => true
 
 namespace :deploy do
+  task :after_symlink do
+    run "mkdir -p #{deploy_to}/shared/public/fotos"
+    run "mkdir -p #{current_release}/public/system"
+    run "ln -fs #{deploy_to}/shared/public/fotos #{current_release}/public/system/fotos"
+  end
   task :restart do
     run "touch #{current_release}/tmp/restart.txt"
   end
