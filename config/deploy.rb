@@ -26,8 +26,12 @@ role :db,  single_target, :primary => true
 namespace :deploy do
   task :after_symlink do
     run "mkdir -p #{deploy_to}/shared/public/fotos"
-    run "mkdir -p #{current_release}/public/system"
+    run "rm -rf #{deploy_to}/current/public/system"
+    run "mkdir -p #{deploy_to}/current/public/system"
     run "ln -fs #{deploy_to}/shared/public/fotos #{current_release}/public/system/fotos"
+    run "ln -fs #{deploy_to}/shared/config/database.yml #{current_release}/config/database.yml"
+    run "mkdir -p #{deploy_to}/shared/log"
+    run "ln -fs #{deploy_to}/shared/log #{current_release}/"
   end
   task :restart do
     run "touch #{current_release}/tmp/restart.txt"
