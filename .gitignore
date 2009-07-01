@@ -3,3 +3,4 @@ log
 doc
 config/database.yml
 db/*.sqlite*
+public/system
