@@ -1,4 +1,5 @@
-<h1>Editing post</h1>
+<% title 'Post bearbeiten' %>
+<% javascript *%w(jquery jquery-ui application) %>
 
 <% form_for(@post) do |f| %>
   <%= f.error_messages %>
@@ -20,7 +21,9 @@
     <%= f.check_box :published %>
   </p>
 
-  <%= image_tag @post.foto.url(:standard) %>
+  <div class="foto">
+    <%= image_tag @post.foto.url(:standard) %>
+  </div>
 
   <div class="markers">
     <% f.fields_for :markers do |marker_form|  %>
@@ -28,8 +31,11 @@
         <%= f.label :name %>
         <%= marker_form.text_field :name %>
         <%= f.label :position %>
-        <%= marker_form.text_field :pos_x, :size => 5 %>
-        <%= marker_form.text_field :pos_y, :size => 5 %>
+        <%= marker_form.text_field :pos_x, :size => 5, :class => 'pos_x' %>
+        <%= marker_form.text_field :pos_y, :size => 5, :class => 'pos_y' %>
+        <% div_for marker_form.object do %>
+          <%= @post.markers.index(marker_form.object) + 1 %>
+        <% end %>
       </div>
     <% end %>
   </div>
