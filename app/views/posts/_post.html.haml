@@ -3,4 +3,6 @@
   %span.subtitle= post.subtitle
   %div.body= post.body
   %div.image= link_to image_tag(post.foto.url(:standard)), post
+  - unless post.published?
+    %div.warning "Post ist noch unsichtbar, bitte veröffentlichen"
   
