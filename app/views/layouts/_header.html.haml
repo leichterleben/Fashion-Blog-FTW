@@ -1,0 +1,12 @@
+#header
+  - if logged_in? 
+    ="Willkommen"
+    =current_user.username
+    %p
+      ="Falscher Nutzer ?" 
+      =link_to "Neu Anmelden", logout_path
+  -else 
+    ="Bitte melde dich an"
+    =link_to "Registrieren", signup_path 
+    ="or"
+    =link_to "Anmelden", login_path
