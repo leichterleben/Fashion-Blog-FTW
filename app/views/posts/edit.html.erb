@@ -16,6 +16,10 @@
     <%= f.text_area :body %>
   </p>
   <p>
+    <%= f.label :published, 'Öffentlich sichtbar' %>
+    <%= f.check_box :published %>
+  </p>
+  <p>
     <%= f.submit 'Update' %>
   </p>
 <% end %>
