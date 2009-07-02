@@ -9,7 +9,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090702192621) do
+ActiveRecord::Schema.define(:version => 20090702222825) do
+
+  create_table "markers", :force => true do |t|
+    t.string   "name"
+    t.string   "url"
+    t.integer  "pos_x"
+    t.integer  "pos_y"
+    t.integer  "post_id_id"
+    t.integer  "price"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "posts", :force => true do |t|
     t.string   "title"
@@ -21,6 +32,7 @@ ActiveRecord::Schema.define(:version => 20090702192621) do
     t.string   "foto_content_type"
     t.integer  "foto_file_size"
     t.datetime "foto_updated_at"
+    t.boolean  "published"
   end
 
   create_table "users", :force => true do |t|
