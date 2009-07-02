@@ -1,6 +1,6 @@
 .post
-  %h3.title= post.title
+  %h3.title= link_to post.title, post
   %span.subtitle= post.subtitle
   %div.body= post.body
-  %div.image= image_tag post.foto.url(:standard)
+  %div.image= link_to image_tag(post.foto.url(:standard)), post
   

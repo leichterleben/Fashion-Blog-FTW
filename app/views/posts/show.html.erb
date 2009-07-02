@@ -1,21 +1,7 @@
-<p>
-  <b>Title:</b>
-  <%=h @post.title %>
-</p>
+<%= render :partial => @post %>
 
-<p>
-  <b>Subtitle:</b>
-  <%=h @post.subtitle %>
-</p>
-
-<p><%=image_tag @post.foto.url(:standard)%>
-</p>
-
-<p>
-  <b>Body:</b>
-  <%=h @post.body %>
-</p>
-
-
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+<% if logged_in?%>
+<%= link_to 'Bearbeiten', edit_post_path(@post) %> |
+<%= link_to 'Löschen', post_path(@post), :method=> :delete, :confirm=> "Möchtest du dein Post wirklich loschen?" %> |
+<% end %>
+<%= link_to 'Zurück', posts_path %>
