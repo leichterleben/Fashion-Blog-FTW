@@ -19,6 +19,21 @@
     <%= f.label :published, 'Öffentlich sichtbar' %>
     <%= f.check_box :published %>
   </p>
+
+  <%= image_tag @post.foto.url(:standard) %>
+
+  <div class="markers">
+    <% f.fields_for :markers do |marker_form|  %>
+      <div class="marker_form">
+        <%= f.label :name %>
+        <%= marker_form.text_field :name %>
+        <%= f.label :position %>
+        <%= marker_form.text_field :pos_x, :size => 5 %>
+        <%= marker_form.text_field :pos_y, :size => 5 %>
+      </div>
+    <% end %>
+  </div>
+
   <p>
     <%= f.submit 'Update' %>
   </p>
