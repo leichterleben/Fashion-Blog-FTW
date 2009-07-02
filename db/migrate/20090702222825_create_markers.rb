@@ -5,7 +5,7 @@ class CreateMarkers < ActiveRecord::Migration
       t.string :url
       t.integer :pos_x
       t.integer :pos_y
-      t.belongs_to :post_id
+      t.belongs_to :post
       t.integer :price
 
       t.timestamps

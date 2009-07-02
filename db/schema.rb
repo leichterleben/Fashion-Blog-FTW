@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(:version => 20090702222825) do
     t.string   "url"
     t.integer  "pos_x"
     t.integer  "pos_y"
-    t.integer  "post_id_id"
+    t.integer  "post_id"
     t.integer  "price"
     t.datetime "created_at"
     t.datetime "updated_at"
