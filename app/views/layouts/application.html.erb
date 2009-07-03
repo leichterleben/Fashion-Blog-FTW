@@ -6,6 +6,7 @@
     <%= stylesheet_link_tag 'application' %>
     <%= yield(:head) %>
     <%= auto_discovery_link_tag :rss, posts_url(:format => :rss) %>
+    <%= auto_discovery_link_tag :atom, posts_url(:format => :atom) %>
     
   </head>
   <body>

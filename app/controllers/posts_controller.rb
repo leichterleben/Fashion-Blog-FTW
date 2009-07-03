@@ -13,6 +13,7 @@ class PostsController < ApplicationController
       format.html # index.html.erb
       format.xml  { render :xml => @posts }
       format.rss  
+      format.atom
     end
   end
 
