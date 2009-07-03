@@ -3,7 +3,11 @@
 
 <% form_for(@post) do |f| %>
   <%= f.error_messages %>
-
+  
+  <div class="foto">
+    <%= image_tag @post.foto.url(:standard) %>
+  </div>
+  
   <p>
     <%= f.label :title %><br />
     <%= f.text_field :title %>
@@ -14,24 +18,26 @@
   </p>
   <p>
     <%= f.label :body %><br />
-    <%= f.text_area :body %>
+    <%= f.text_area :body, :rows=> 5 %>
   </p>
   <p>
     <%= f.label :published, 'Öffentlich sichtbar' %>
     <%= f.check_box :published %>
   </p>
 
-  <div class="foto">
-    <%= image_tag @post.foto.url(:standard) %>
-  </div>
+
 
   <div class="markers">
     <% f.fields_for :markers do |marker_form|  %>
       <div class="marker_form">
         <%= f.label :name %>
         <%= marker_form.text_field :name %>
-        <%= marker_form.hidden_field :pos_x, :size => 5, :class => 'pos_x' %>
-        <%= marker_form.hidden_field :pos_y, :size => 5, :class => 'pos_y' %>
+        <%= f.label :price, "Preis" %>
+        <%= marker_form.text_field :price, :size => 5 %>
+        <%= f.label :url, "Link" %>
+        <%= marker_form.text_field :url %> 
+        <%= marker_form.hidden_field :pos_x, :class => 'pos_x' %>
+        <%= marker_form.hidden_field :pos_y, :class => 'pos_y' %>
         <% div_for marker_form.object do %>
           <%= @post.markers.index(marker_form.object) + 1 %>
         <% end %>

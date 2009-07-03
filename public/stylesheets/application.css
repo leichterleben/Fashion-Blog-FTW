@@ -96,6 +96,7 @@ a {
 
 form.edit_post div.foto {
   position: relative;
+  float: right;
 }
 form.edit_post div.foto div.marker {
   position: absolute;
