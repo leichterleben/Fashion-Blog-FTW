@@ -6,22 +6,26 @@ $(document).ready(function() {
     $(this).height( img.height() ).width( img.width() );
   });
   $('form.edit_post div.marker_form div.marker').each(function() {
-    /* TODO Prozent */
     var pos_x_field = $(this).siblings('input.pos_x');
     var pos_y_field = $(this).siblings('input.pos_y');
     var image = $('form.edit_post div.foto');
     $(this)
+      .clone()
       .css('left', pos_x_field.val() + '%')
       .css('top', pos_y_field.val() + '%')
       .appendTo( image )
       .draggable({
         containment: image,
         stop: function(event, ui) {
-          console.debug('drag finished at', ui.position);
           pos_x_field.val( 100 * ui.position.left / image.width() );
           pos_y_field.val( 100 * ui.position.top / image.height() );
         }
       });
-
+    $(this).hide();
   });
+
+  $('<a href="#">Neu</a>').click(function() {
+    $('form.edit_post div.markers div.marker_form:last').clone().insertBefore(this);
+    return false;
+  }).appendTo('form.edit_post div.markers')
 });
