@@ -5,7 +5,7 @@ $(document).ready(function() {
     var img = $(this).find('img:first');
     $(this).height( img.height() ).width( img.width() );
   });
-  $('form.edit_post div.marker_form div.marker').each(function() {
+  $('form.edit_post div.marker_form div.marker').livequery(function() {
     var pos_x_field = $(this).siblings('input.pos_x');
     var pos_y_field = $(this).siblings('input.pos_y');
     var image = $('form.edit_post div.foto');
@@ -14,6 +14,7 @@ $(document).ready(function() {
       .css('left', pos_x_field.val() + '%')
       .css('top', pos_y_field.val() + '%')
       .appendTo( image )
+      .show()
       .draggable({
         containment: image,
         stop: function(event, ui) {
@@ -25,7 +26,16 @@ $(document).ready(function() {
   });
 
   $('<a href="#">Neu</a>').click(function() {
-    $('form.edit_post div.markers div.marker_form:last').clone().insertBefore(this);
+    var form = $('form.edit_post div.markers div.marker_form:last');
+    var i = parseInt(form.find('div.marker').text()) + 1;
+    form
+      .clone()
+      .find('input.pos_x').val( 99 * Math.random() ).end()
+      .find('input.pos_y').val( 99 * Math.random() ).end()
+      .find('div.marker')
+        .text( i )
+      .end()
+      .insertBefore(this);
     return false;
   }).appendTo('form.edit_post div.markers')
 });
