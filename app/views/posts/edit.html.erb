@@ -1,5 +1,5 @@
 <% title 'Post bearbeiten' %>
-<% javascript *%w(jquery jquery-ui application) %>
+<% javascript *%w(jquery jquery-ui jquery-livequery application) %>
 
 <% form_for(@post) do |f| %>
   <%= f.error_messages %>
@@ -30,9 +30,8 @@
       <div class="marker_form">
         <%= f.label :name %>
         <%= marker_form.text_field :name %>
-        <%= f.label :position %>
-        <%= marker_form.text_field :pos_x, :size => 5, :class => 'pos_x' %>
-        <%= marker_form.text_field :pos_y, :size => 5, :class => 'pos_y' %>
+        <%= marker_form.hidden_field :pos_x, :size => 5, :class => 'pos_x' %>
+        <%= marker_form.hidden_field :pos_y, :size => 5, :class => 'pos_y' %>
         <% div_for marker_form.object do %>
           <%= @post.markers.index(marker_form.object) + 1 %>
         <% end %>

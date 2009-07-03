@@ -11,8 +11,8 @@ $(document).ready(function() {
     var image = $('form.edit_post div.foto');
     $(this)
       .clone()
-      .css('left', pos_x_field.val() + '%')
-      .css('top', pos_y_field.val() + '%')
+      .css('left', (pos_x_field.val() || 99 * Math.random() )+ '%')
+      .css('top',  (pos_y_field.val() || 99 * Math.random() )+ '%')
       .appendTo( image )
       .show()
       .draggable({
@@ -30,8 +30,6 @@ $(document).ready(function() {
     var i = parseInt(form.find('div.marker').text()) + 1;
     form
       .clone()
-      .find('input.pos_x').val( 99 * Math.random() ).end()
-      .find('input.pos_y').val( 99 * Math.random() ).end()
       .find('div.marker')
         .text( i )
       .end()

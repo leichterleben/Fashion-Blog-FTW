@@ -7,12 +7,4 @@ class Marker < ActiveRecord::Base
   validates_inclusion_of :pos_y, :in => 0..100
 
 
-  # TODO nested forms does not recognize this
-  def pos_x
-    self['pos_x'] || 50
-  end
-  def pos_y
-    self['pos_y'] || 50
-  end
-  
 end
