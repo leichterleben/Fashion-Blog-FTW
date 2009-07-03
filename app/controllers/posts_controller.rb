@@ -3,7 +3,11 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.xml
   def index
-    @posts = Post.all :order => "created_at DESC"
+    if logged_in?
+      @posts = Post.all(:order => "created_at DESC")
+    else
+      @posts = Post.published.all(:order => "created_at DESC")
+    end
 
     respond_to do |format|
       format.html # index.html.erb
@@ -36,6 +40,7 @@ class PostsController < ApplicationController
   # GET /posts/1/edit
   def edit
     @post = Post.find(params[:id])
+    @post.markers.build
   end
 
   # POST /posts

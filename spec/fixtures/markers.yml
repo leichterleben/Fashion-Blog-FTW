@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  url: MyString
+  pos_x: 1
+  pos_y: 1
+  post_id: 
+  price: 1
+
+two:
+  name: MyString
+  url: MyString
+  pos_x: 1
+  pos_y: 1
+  post_id: 
+  price: 1

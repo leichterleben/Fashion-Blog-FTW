@@ -90,3 +90,19 @@ a {
   font-size: 12px;
   list-style: disc;
 }
+
+
+/* Markers */
+
+form.edit_post div.foto {
+  position: relative;
+}
+form.edit_post div.foto div.marker {
+  position: absolute;
+  background-color: black;
+  color: white;
+}
+
+div.ui-draggable {
+  cursor: move;
+}
