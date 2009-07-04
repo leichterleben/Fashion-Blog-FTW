@@ -6,7 +6,7 @@ class Marker < ActiveRecord::Base
   validates_numericality_of :pos_x, :pos_y
   validates_inclusion_of :pos_x, :in => 0..100
   validates_inclusion_of :pos_y, :in => 0..100
-  validates_format_of :url, :with => URI::regexp 
+  validates_format_of :url, :with => URI::regexp, :allow_blank => true
 
   before_validation :prepend_http
   def prepend_http
