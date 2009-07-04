@@ -108,7 +108,7 @@ div.ui-draggable {
   cursor: move;
 }
 
-div.markers {
+div.markers_show {
 	margin-top:8em;
 	float:right;
 }

@@ -30,10 +30,13 @@
   <div class="markers">
     <% f.fields_for :markers do |marker_form|  %>
       <div class="marker_form">
-        <%= f.label :name %>
-        <%= marker_form.text_field :name %>
-        <%= f.label :price, "Preis" %>
-        <%= marker_form.text_field :price, :size => 5 %>
+        <p>
+          <%= f.label :name %>
+          <%= marker_form.text_field :name %>
+        </p>
+        <p>
+          <%= f.label :price, "Preis" %>
+          <%= marker_form.text_field :price, :size => 5 %>
         <%= f.label :url, "Link" %>
         <%= marker_form.text_field :url %> 
         <%= marker_form.hidden_field :pos_x, :class => 'pos_x' %>

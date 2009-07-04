@@ -1,7 +1,7 @@
 .post
   %h3.title= link_to @post.title, @post
   %span.subtitle= @post.subtitle
-  %div.markers
+  %div.markers_show
     - @post.markers.each do |marker|
       = marker.name
       = number_to_currency marker.price.to_f/100, {:unit => "€", :separator =>",", :delimiter =>""}
