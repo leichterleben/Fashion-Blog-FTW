@@ -1,0 +1,16 @@
+.post
+  %h3.title= link_to @post.title, @post
+  %span.subtitle= @post.subtitle
+  %div.foto
+    = link_to image_tag(@post.foto.url(:standard)), @post
+    - @post.markers.each_with_index do |marker,i|
+      %div.marker{:style => "top: #{marker.pos_y}%; left: #{marker.pos_x}%"}= i+1
+  %div.body= @post.body
+  - unless @post.published?
+    %div.warning "Post ist noch unsichtbar, bitte veröffentlichen"
+  - if logged_in? 
+    =link_to 'bearbeiten', edit_post_path(@post)
+    =link_to "löschen", post_path(@post), {:method=> :delete, :confirm=> "Möchtest du dein Post wirklich loschen?"}
+    =link_to "zurück", posts_path
+  -else
+    =link_to "zurück", posts_path

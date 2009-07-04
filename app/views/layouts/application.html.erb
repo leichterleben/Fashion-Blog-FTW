@@ -7,11 +7,11 @@
     <%= yield(:head) %>
     <%= auto_discovery_link_tag :rss, posts_url(:format => :rss) %>
     <%= auto_discovery_link_tag :atom, posts_url(:format => :atom) %>
-    
   </head>
   <body>
 	
 	<%= render :partial =>"layouts/header"%>
+	
 	
     <div id="container">
       <%- flash.each do |name, msg| -%>

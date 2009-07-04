@@ -1,7 +1,6 @@
 <% title "Die neuesten Posts" %>
 
-<p><%=link_to "RSS Feed", posts_url(:format => :rss) %></p>
-<p><%=link_to "ATOM Feed", posts_url(:format => :atom) %></p>
+
 <%= render :partial => @posts %>
 
 <%= link_to 'New post', new_post_path if logged_in? %>

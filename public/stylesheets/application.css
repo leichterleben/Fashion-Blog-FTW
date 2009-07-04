@@ -107,3 +107,7 @@ form.edit_post div.foto div.marker {
 div.ui-draggable {
   cursor: move;
 }
+
+div.markers {
+	margin-top:8em;
+}

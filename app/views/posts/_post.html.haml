@@ -1,8 +1,8 @@
 .post
   %h3.title= link_to post.title, post
   %span.subtitle= post.subtitle
+  %div.foto= link_to image_tag(post.foto.url(:standard)), post
   %div.body= post.body
-  %div.image= link_to image_tag(post.foto.url(:standard)), post
   - unless post.published?
     %div.warning "Post ist noch unsichtbar, bitte veröffentlichen"
   

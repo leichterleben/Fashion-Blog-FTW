@@ -1,7 +1,18 @@
+<div class="markers">
+  <% @post.markers.each do |marker| %>
+    <%= marker.name %>
+    <%= number_to_currency marker.price.to_f/100, :unit => "€", :separator =>",", :delimiter =>"" %>
+    <%= link_to "Buy", marker.url %>
+  <% end %>
+</div>
+
 <%= render :partial => @post %>
+
+
 
 <% if logged_in?%>
 <%= link_to 'Bearbeiten', edit_post_path(@post) %> |
 <%= link_to 'Löschen', post_path(@post), :method=> :delete, :confirm=> "Möchtest du dein Post wirklich loschen?" %> |
 <% end %>
 <%= link_to 'Zurück', posts_path %>
+
