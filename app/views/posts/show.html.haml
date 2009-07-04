@@ -6,6 +6,7 @@
     - @post.markers.each_with_index do |marker,i|
       %div.marker_info{:id => "marker_#{marker.id}_info"}
         = i+1
+        = "."
         = marker.name
         = number_to_currency marker.price.to_f/100, {:unit => "€", :separator =>",", :delimiter =>""}
         = link_to "Buy", marker.url

@@ -49,6 +49,17 @@ $(document).ready(function() {
       $(this).removeClass('hover');
       $('div#' + $(this).attr('id') + '_info').removeClass('hover');
     }
+  );
+  
+  $('div.marker_info').hover(
+    function() { 
+      $(this).addClass('hover');
+      if ( m = $(this).attr('id').match(/^(marker_\d+)/)   ) { $('div.foto div#' + m[1]).addClass('hover')   }
+    },
+    function() { 
+      $(this).removeClass('hover');
+      if ( m = $(this).attr('id').match(/^(marker_\d+)/)   ) { $('div.foto div#' + m[1]).removeClass('hover')   }
+    }
   )
 });
 
