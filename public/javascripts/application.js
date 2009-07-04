@@ -6,8 +6,8 @@ $(document).ready(function() {
     $(this).height( img.height() ).width( img.width() );
   });
   $('form.edit_post div.marker_form div.marker').livequery(function() {
-    var pos_x_field = $(this).siblings('input.pos_x');
-    var pos_y_field = $(this).siblings('input.pos_y');
+    var pos_x_field = $(this).parent().find('input.pos_x');
+    var pos_y_field = $(this).parent().find('input.pos_y');
     var image = $('form.edit_post div.foto');
     $(this)
       .clone()
@@ -25,12 +25,12 @@ $(document).ready(function() {
     $(this).hide();
   });
 
-  $('<a href="#">Neu</a>').click(function() {
+  $('<p><a href="#">Neu</a></p>').click(function() {
     var form = $('form.edit_post div.markers div.marker_form:last');
     var i = parseInt(form.find('div.marker').text()) + 1;
     form
       .clone()
-      .find('div.marker')
+      .find('div.marker, label[for=post_name]')
         .text( i )
       .end()
       .insertBefore(this);

@@ -1,8 +1,10 @@
+- javascript *%w(jquery jquery-ui jquery-livequery application)
 .post
   %h3.title= link_to @post.title, @post
   %span.subtitle= @post.subtitle
-  %div.markers_show
-    - @post.markers.each do |marker|
+  %div.markers
+    - @post.markers.each_with_index do |marker,i|
+      = i+1
       = marker.name
       = number_to_currency marker.price.to_f/100, {:unit => "€", :separator =>",", :delimiter =>""}
       = link_to "Buy", marker.url
@@ -10,7 +12,7 @@
     = link_to image_tag(@post.foto.url(:standard)), @post
     - @post.markers.each_with_index do |marker,i|
       %div.marker{:style => "top: #{marker.pos_y}%; left: #{marker.pos_x}%"}= i+1
-  %div.body= @post.body
+  -#%div.body= @post.body
   - unless @post.published?
     %div.warning "Post ist noch unsichtbar, bitte veröffentlichen"
   - if logged_in? 
