@@ -4,9 +4,7 @@
 <% form_for(@post) do |f| %>
   <%= f.error_messages %>
   
-  <div class="foto">
-    <%= image_tag @post.foto.url(:standard) %>
-  </div>
+
   
   <p>
     <%= f.label :title %><br />
@@ -25,17 +23,25 @@
     <%= f.check_box :published %>
   </p>
 
-
+  <div class="foto">
+    <%= image_tag @post.foto.url(:standard) %>
+  </div>
 
   <div class="markers">
     <% f.fields_for :markers do |marker_form|  %>
       <div class="marker_form">
-        <%= f.label :name %>
-        <%= marker_form.text_field :name %>
-        <%= f.label :price, "Preis" %>
-        <%= marker_form.text_field :price, :size => 5 %>
+        <p>
+          <%= f.label :name, @post.markers.index(marker_form.object) + 1 %>
+          <%= marker_form.text_area :name, :rows => 2 %>
+        </p>
+        <p>
+          <%= f.label :price, "Preis" %>
+          <%= marker_form.text_field :price, :size => 5 %>
+        </p>
+        <p>
         <%= f.label :url, "Link" %>
         <%= marker_form.text_field :url %> 
+        </p>
         <%= marker_form.hidden_field :pos_x, :class => 'pos_x' %>
         <%= marker_form.hidden_field :pos_y, :class => 'pos_y' %>
         <% div_for marker_form.object do %>
@@ -46,9 +52,9 @@
   </div>
 
   <p>
+    <%= link_to 'Show', @post %> |
+    <%= link_to 'Back to List', posts_path %> |
     <%= f.submit 'Update' %>
   </p>
 <% end %>
-
-<%= link_to 'Show', @post %> |
-<%= link_to 'Back', posts_path %>
+<div style="clear: both" />

@@ -36,6 +36,7 @@ a {
   padding: 20px 40px;
   border: solid 1px black;
   margin-top: 20px;
+  position: relative;
 }
 
 #flash_notice, #flash_error {
@@ -98,6 +99,11 @@ form.edit_post div.foto {
   position: relative;
   float: right;
 }
+
+div.post div.foto {
+	position: relative;
+}
+
 div.foto div.marker {
   position: absolute;
   background-color: black;
@@ -108,7 +114,7 @@ div.ui-draggable {
   cursor: move;
 }
 
-div.markers {
+div.post div.markers {
 	margin-top:8em;
 	float:right;
 }
@@ -117,3 +123,27 @@ div.markers {
 div.foto div.marker.hover {
   background-color: green;
 }
+
+form label {
+	float:left;
+	margin :0 0.4em;
+	width: 5em;
+}
+
+form p {
+	float:left;
+	clear: left;
+}
+
+div.marker_form {
+	float:left;
+	border-top: thin solid #999;
+	clear:left;
+	margin-top: 0.5em;
+	padding-top: 0.5em;
+}
+
+div.marker_form p {
+	margin: 0.1em;
+}
+
