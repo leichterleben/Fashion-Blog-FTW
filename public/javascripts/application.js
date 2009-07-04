@@ -1,6 +1,17 @@
 // Place your application-specific JavaScript functions and classes here
 // This file is automatically included by javascript_include_tag :defaults
 $(document).ready(function() {
+
+  $.fn.setNestedAttributeCounter = function(counter) {
+    return $(this).each(function() {
+      $(this).html(
+        $(this).html()
+          .replace(/attributes_\d+/gi, "attributes_" + counter)
+          .replace(/attributes\]\[\d+/gi, "attributes][" + counter)
+      );
+    });
+  };
+
   $('div.foto').each( function() {
     var img = $(this).find('img:first');
     $(this).height( img.height() ).width( img.width() );
@@ -36,6 +47,7 @@ $(document).ready(function() {
       .find('div.marker, label[for=post_name]')
         .text( i )
       .end()
+      .setNestedAttributeCounter(i)
       .insertBefore(this);
     return false;
   }).appendTo('form.edit_post div.markers')
