@@ -9,7 +9,7 @@ $(document).ready(function() {
     var pos_x_field = $(this).siblings('input.pos_x');
     var pos_y_field = $(this).siblings('input.pos_y');
     var image = $('form.edit_post div.foto');
-    $(this)
+    var marker = $(this)
       .clone()
       .css('left', (pos_x_field.val() || 99 * Math.random() )+ '%')
       .css('top',  (pos_y_field.val() || 99 * Math.random() )+ '%')
@@ -22,6 +22,9 @@ $(document).ready(function() {
           pos_y_field.val( 100 * ui.position.top / image.height() );
         }
       });
+    $(this).parent().find(':input')
+      .focus( function() { marker.addClass('hover') })
+      .blur( function()  { marker.removeClass('hover') });
     $(this).hide();
   });
 
