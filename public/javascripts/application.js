@@ -39,4 +39,16 @@ $(document).ready(function() {
       .insertBefore(this);
     return false;
   }).appendTo('form.edit_post div.markers')
+
+  $('div.foto div.marker').hover(
+    function() { 
+      $(this).addClass('hover');
+      $('div#' + $(this).attr('id') + '_info').addClass('hover');
+    },
+    function() { 
+      $(this).removeClass('hover');
+      $('div#' + $(this).attr('id') + '_info').removeClass('hover');
+    }
+  )
 });
+

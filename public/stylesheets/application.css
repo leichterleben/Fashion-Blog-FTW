@@ -108,10 +108,11 @@ div.foto div.marker {
   position: absolute;
   background-color: black;
   color: white;
+  cursor: pointer;
 }
 
 div.ui-draggable {
-  cursor: move;
+  cursor: move !important;
 }
 
 div.post div.markers {
@@ -147,3 +148,10 @@ div.marker_form p {
 	margin: 0.1em;
 }
 
+div.marker_info {
+  margin: 0.3em;
+}
+
+div.marker_info.hover {
+  background-color: green;
+}
