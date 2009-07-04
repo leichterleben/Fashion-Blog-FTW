@@ -1,6 +1,11 @@
 .post
   %h3.title= link_to @post.title, @post
   %span.subtitle= @post.subtitle
+  %div.markers
+    - @post.markers.each do |marker|
+      = marker.name
+      = number_to_currency marker.price.to_f/100, {:unit => "€", :separator =>",", :delimiter =>""}
+      = link_to "Buy", marker.url
   %div.foto
     = link_to image_tag(@post.foto.url(:standard)), @post
     - @post.markers.each_with_index do |marker,i|
@@ -14,3 +19,4 @@
     =link_to "zurück", posts_path
   -else
     =link_to "zurück", posts_path
+ 
