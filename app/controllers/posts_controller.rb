@@ -1,5 +1,7 @@
 class PostsController < ApplicationController
-  before_filter :login_required, :except => [:index, :show]
+  PublicActions = [:index, :show]
+  layout 'fancy', :only => PublicActions
+  before_filter :login_required, :except => PublicActions
   # GET /posts
   # GET /posts.xml
   def index

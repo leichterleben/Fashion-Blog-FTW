@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title><%= h(yield(:title) || "somewear.it") %></title>
+    <%= stylesheet_link_tag 'fancy' %>
+    <%= yield(:head) %>
+    <%= auto_discovery_link_tag :rss, posts_url(:format => :rss) %>
+    <%= auto_discovery_link_tag :atom, posts_url(:format => :atom) %>
+  </head>
+  <body>
+
+    <div id="container">
+
+      <div id="header">
+        <ul id="menu">
+          <li><%= link_to "Blog", root_url %></li>
+          <li><%= link_to "Interviews", root_url %></li>
+          <li><%= link_to "Labels", root_url %></li>
+        </ul>
+      </div>
+
+      <div id="main">
+
+        <div id="sidebar">
+
+          <div id="tags">
+            <span>Crazy</span>
+            <span>Sexy</span>
+            <span>Cool</span>
+          </div>
+
+        </div>
+
+        <div id="content">
+          very much content
+          <%= yield %>
+        </div>
+
+      </div>
+
+
+    </div>
+	
+  </body>
+</html>

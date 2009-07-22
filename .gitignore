@@ -6,3 +6,4 @@ db/*.sqlite*
 public/system
 *.swp
 *.swo
+public/stylesheets/fancy.css*
